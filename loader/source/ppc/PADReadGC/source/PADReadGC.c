@@ -689,9 +689,9 @@ u32 PADRead(u32 calledByGame)
 		if((BTPad[chan].used & (C_CC | C_CCP))
 		  ||((BTPad[chan].used & C_NUN) && (BTPad[chan].used & C_ISWAP)))
 		{
-			if(BTPad[chan].xAxisR > 0x7F)
+			if(BTPad[chan].xAxisR < 0x7F)
 				tmp_stick = 0x7F;
-			else if(BTPad[chan].xAxisR < -0x80)
+			else if(BTPad[chan].xAxisR > -0x80)
 				tmp_stick = -0x80;
 			else
 				tmp_stick = BTPad[chan].xAxisR;
